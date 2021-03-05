@@ -9,5 +9,5 @@ Usage;
 
 	-k  Just give keyword, Dork and it search for you
 	-w  Just give wordlist, dork list
-  -o  Output!
+ 	-o  Output!
  
