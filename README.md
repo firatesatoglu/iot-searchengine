@@ -1,4 +1,4 @@
-# Shodan-search-Script
+# Shodan-search-script
 Shodan search tool
 
 Usage;
