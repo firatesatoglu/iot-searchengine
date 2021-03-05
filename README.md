@@ -12,4 +12,4 @@ Usage;
 	-w  Just give wordlist, dork list
  	-o  Output!
  
-If you dont redirect output, it will create the file in the current directory by defualt
+If you dont redirect output, it will create the file in the current directory by default
