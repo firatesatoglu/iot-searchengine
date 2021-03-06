@@ -23,7 +23,7 @@ def shodanSearch(searchKeyword, outputFile):
     try:
         print('🔥')
         apiforSearch= "https://api.shodan.io/shodan/host/search?"
-        GuthmaerAPI= '******************************'
+        GuthmaerAPI= '******************************' #API_KEY !!!CHANGE ME
         searchQuery= apiforSearch + "key=" + GuthmaerAPI + '&query=' + searchKeyword
 
         requestforSearch = requests.get(searchQuery)  #headers=headers, proxies=proxy, cookies=justCookie
