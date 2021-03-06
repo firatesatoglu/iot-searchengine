@@ -1,6 +1,8 @@
 # Shodan-search-script
 Shodan search tool
 
+First by first you need change API key, with your API key in code. 
+
 Usage;
 
 	python shodanScript.py -f dorkList.txt -o output.txt
