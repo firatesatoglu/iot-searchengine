@@ -76,9 +76,9 @@ def keywordSearch(keywordInput, outputFile):
     shodanSearch(keywordInput, outputFile)
 
 argParse = argparse.ArgumentParser(description='Shodan Script make doing something')
-argParse.add_argument('-k','--keyword', help='Anahtar kelimeye göre arama')
-argParse.add_argument('-f','--file', help='Kelime listesine göre arama ')
-argParse.add_argument('-o','--output', help='Çıktıyı bir yere yönlendir \'Varsayılan olarak bulunduğun dizine yeni bir dosya oluşturur\'')
+argParse.add_argument('-k','--keyword', help='Just give keyword, Dork and it search for you')
+argParse.add_argument('-f','--file', help='Just give wordlist, dork list')
+argParse.add_argument('-o','--output', help='Redirect Output! \'Defualt write current directory\'')
 
 parseArgument= vars(argParse.parse_args())
 userKeyword= parseArgument['keyword']
