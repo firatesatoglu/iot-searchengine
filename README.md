@@ -1,5 +1,5 @@
 # Shodan-search-script
-Shodan search tool
+Shodan script for easy search on Shodan.
 
 First by first you need change API key, with your API key in code. 
 
