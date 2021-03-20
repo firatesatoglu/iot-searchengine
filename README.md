@@ -5,8 +5,8 @@ First by first you need change API key, with your API key in code.
 
 Usage;
 
-	python shodanScript.py -f dorkList.txt -o output.txt
-	python shodanScript.py -k net:"210.214.0.0/16" -o output.txt
+	python3 shodanScript.py -f dorkList.txt -o output.txt
+	python3 shodanScript.py -k net:"210.214.0.0/16" -o output.txt
 	
 -h, --help  show this help message and exit
 
