@@ -21,7 +21,6 @@ import os
 #Author: Guthmaer
 def shodanSearch(searchKeyword, outputFile):
     try:
-        #print('🔥')
         apiforSearch= "https://api.shodan.io/shodan/host/search?"
         GuthmaerAPI= '******************************' #API_KEY !!!CHANGE ME
         searchQuery= apiforSearch + "key=" + GuthmaerAPI + '&query=' + searchKeyword
