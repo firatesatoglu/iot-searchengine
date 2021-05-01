@@ -5,8 +5,9 @@ First by first you need CHANGE API KEY, with your API key in code.
 
 Usage;
 
-	python3 shodanScript.py -f dorkList.txt -o output.txt
-	python3 shodanScript.py -k "net:'210.214.0.0/16'" -o output.txt
+	python3 shodanScript.py -f dorkList.txt
+	python3 shodanScript.py -k "net:'210.214.0.0/16'"
+	python3 shodanScript.py -k "http.title:'ID_VC_Welcome' country:'tr'" 
 	
 -h, --help  show this help message and exit
 
