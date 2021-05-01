@@ -19,10 +19,11 @@ import os
 #        return requ
 
 #Author: Guthmaer
-def shodanSearch(searchKeyword, outputFile):
+def shodanSearch(searchKeyword):
     try:
+        print("Wait...")
         apiforSearch= "https://api.shodan.io/shodan/host/search?"
-        GuthmaerAPI= '******************************' #API_KEY !!!CHANGE ME
+        GuthmaerAPI= '**********************************' #API_KEY !!!CHANGE ME
         searchQuery= apiforSearch + "key=" + GuthmaerAPI + '&query=' + searchKeyword
 
         requestforSearch = requests.get(searchQuery)  #headers=headers, proxies=proxy, cookies=justCookie
@@ -40,60 +41,47 @@ def shodanSearch(searchKeyword, outputFile):
             
             try: 
                 allVuln = fromShodan['vulns'] 
-                result= f'{ipAddr}[{locationCountryCode}] Port= {ipPort} {dataProtocol} \n\tVulnerability found= {list(iter(allVuln))}\n'
-                writeFile(result, outputFile)
+                print(f'{ipAddr}[{locationCountryCode}] Port= {ipPort} {dataProtocol} \n\tVulnerability found= {list(iter(allVuln))}\n')
             except KeyError: 
-                result= f'{ipAddr}[{locationCountryCode}] Port= {ipPort} {dataProtocol}'
-                writeFile(result, outputFile)
+                print(f'{ipAddr}[{locationCountryCode}] Port= {ipPort} {dataProtocol}')
                 pass
     except Exception:
         print('I cant find anything :/')
 
-def writeFile(searchResult, outputFile):
-    if os.path.exists(outputFile)== True:
-        with open(outputFile,'r+', encoding='utf-8') as result:
-            bacResult= result.read()
-            result.seek(0)
-            result.write(searchResult+'\n'+bacResult)
-    else:
-        createFile=open(outputFile,'w', encoding='utf-8')
-        with open(outputFile,'r+', encoding='utf-8') as result:
-            bacResult= result.read()
-            result.seek(0)
-            result.write(searchResult+'\n'+bacResult)
+# def writeFile(searchResult, outputFile):
+#     if os.path.exists(outputFile)== True:
+#         with open(outputFile,'r+', encoding='utf-8') as result:
+#             bacResult= result.read()
+#             result.seek(0)
+#             result.write(searchResult+'\n'+bacResult)
+#     else:
+#         createFile=open(outputFile,'w', encoding='utf-8')
+#         with open(outputFile,'r+', encoding='utf-8') as result:
+#             bacResult= result.read()
+#             result.seek(0)
+#             result.write(searchResult+'\n'+bacResult)
 
-def readFile(fileInput, outputFile):
-    if os.path.exists(outputFile)== True:
+def readFile(fileInput):
+    if os.path.exists(fileInput)== True:
         with open(fileInput, 'r+', encoding='utf-8') as dorkList:
             alldork= dorkList.readlines()
             for dork in alldork:
-                shodanSearch(dork, outputFile)
+                shodanSearch(dork)
     else:
         print('Where is the file?')
         
-def keywordSearch(keywordInput, outputFile):
-    shodanSearch(keywordInput, outputFile)
-
 argParse = argparse.ArgumentParser(description='Shodan Script make doing something')
 argParse.add_argument('-k','--keyword', help='Just give keyword, Dork and it search for you')
 argParse.add_argument('-f','--file', help='Just give wordlist, dork list')
-argParse.add_argument('-o','--output', help='Redirect Output! \'Defualt write current directory\'')
+# argParse.add_argument('-o','--output', help='Redirect Output! \'Defualt write current directory\'')
 
 parseArgument= vars(argParse.parse_args())
 userKeyword= parseArgument['keyword']
 userFile= parseArgument['file']
-userOutput= parseArgument['output']
+# userOutput= parseArgument['output']
 
 if bool(userKeyword)== True:
-    if bool(userOutput)== True:
-        keywordSearch(userKeyword, userOutput)
-    else:
-        userOutput= 'shodanOutput.txt'
-        keywordSearch(userKeyword, userOutput)
+    shodanSearch(userKeyword)
 
 if bool(userFile)== True:
-    if bool(userOutput)== True:
-        readFile(userFile, userOutput)
-    else:
-        userOutput= 'shodanOutput.txt'
-        shodanSearch(userFile, userOutput)
+    readFile(userFile)
