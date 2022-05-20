@@ -17,7 +17,7 @@ Usage;
 Output:
 
 ```
-Keyword: "net:'210.214.0.0/16'"
+Run: python3 shodanScript.py -k "net:'210.214.0.0/16'"
 210.214.86.37[IN] Port= 22 TCP
 210.214.229.206[IN] Port= 445 TCP
         Vulnerability found= ['CVE-2020-0796']
@@ -35,7 +35,7 @@ Keyword: "net:'210.214.0.0/16'"
 ```
 
 ```
-Keyword: "proftpd port:21"
+Run: python3 shodanScript.py -k "proftpd port:21" 
 1.173.112.90[TW] Port= 21 TCP
         Vulnerability found= ['CVE-2010-4652', 'CVE-2009-0543', 'CVE-2009-3639', 'CVE-2008-7265', 'CVE-2011-4130', 'CVE-2010-3867', 'CVE-2012-6095', 'CVE-2011-1137']
 
