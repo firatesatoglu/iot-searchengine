@@ -1,7 +1,7 @@
 censysAPIEndpoint= """https://search.censys.io/_search?resource=hosts&per_page=100&virtual_hosts=EXCLUDE&q={0}"""
 shodanSearchAPI= """https://api.shodan.io/shodan/host/search?key={0}&query={1}"""
 shodanhHostAPI= """https://api.shodan.io/shodan/host/{1}?key={0}"""
-APIKEY= ''
+APIKEY= 'AogVl7Bju06ZvZSLeHl6VAu6dGbZVX0V'
 
 from bs4 import BeautifulSoup
 import cloudscraper
@@ -24,6 +24,7 @@ def shodanSearch(keyword):
     print('Shodan', '-'*40, 'Shodan')
     for shodanOutput in sendRequest(shodanSearchAPI, keyword)['matches']:
         ipAddress= shodanOutput['ip_str']
+        shodanURL= f"https://www.shodan.io/host/{ipAddress}"
         ipLocation= shodanOutput['location']['country_code']
         domaninName= shodanOutput['domains']
         
@@ -32,7 +33,7 @@ def shodanSearch(keyword):
             portInfo= hostInfo['ports']
             vulnerabiltyInfo= f"Vulnerabilty Info: {hostInfo.get('vulns')}" if hostInfo.get('vulns') else ''
             organizationInfo= hostInfo['org']
-            print(f'IP Address: {ipAddress} [{ipLocation}]\n Ports are Open: {portInfo}\n Domain Info: {domaninName}, {organizationInfo}\n {vulnerabiltyInfo}\n')
+            print(f'IP Address: {ipAddress} [{ipLocation}]\n SHODAN URL: {shodanURL}\n Ports are Open: {portInfo}\n Domain Info: {domaninName}, {organizationInfo}\n {vulnerabiltyInfo}\n')
         except:
             pass
 
