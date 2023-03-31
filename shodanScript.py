@@ -1,7 +1,7 @@
 censysAPIEndpoint= """https://search.censys.io/_search?resource=hosts&per_page=100&virtual_hosts=EXCLUDE&q={0}"""
 shodanSearchAPI= """https://api.shodan.io/shodan/host/search?key={0}&query={1}"""
 shodanhHostAPI= """https://api.shodan.io/shodan/host/{1}?key={0}"""
-APIKEY= 'AogVl7Bju06ZvZSLeHl6VAu6dGbZVX0V'
+APIKEY= ''
 
 from bs4 import BeautifulSoup
 import cloudscraper
