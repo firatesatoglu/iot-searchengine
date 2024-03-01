@@ -113,7 +113,7 @@ No result found for http.title:'ID_VC_Welcome' country:'tr' in Censys
 
 ```
 
-#### example: python3 main.py tirsan.com.tr
+#### example: python3 main.py hidden.com.tr
 
 ```
  {'discovered_date': datetime.datetime(2024, 3, 1, 12, 7, 31, 626496),
