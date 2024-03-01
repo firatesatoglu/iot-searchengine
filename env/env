@@ -1,0 +1,13 @@
+SHODAN_API_URL=https://api.shodan.io/dns/domain/{0}?key={1} 
+SHODAN_API_KEY=
+
+CENSYS_API_URL=https://search.censys.io/_search?resource=hosts&per_page=100&virtual_hosts=EXCLUDE&q={0}
+
+SHODAN_SEARCH_URL=https://api.shodan.io/shodan/host/search?key={1}&query={0}
+SHODAN_HOST_URL=https://api.shodan.io/shodan/host/{0}?key={1}
+
+BINARYEDGE_API_URL=https://api.binaryedge.io/v2/query/search?query={0}
+BINARYEDGE_API_KEY=
+
+HUNTERHOW_API_URL=https://api.hunter.how/search?api-key={1}&query={0}&start_time=2023-01-01&end_time=2023-12-01&page_size=100
+HUNTERHOW_API_KEY=
